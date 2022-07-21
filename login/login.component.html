@@ -1,0 +1,83 @@
+<form [formGroup]="profileForm" (ngSubmit)="submit()">
+
+
+
+
+  <h1>Login Page</h1>
+  <div class="login" style="text-align: center;">
+
+    <div class="container">
+
+      <label for="uname"><b>Username</b></label> &nbsp;
+
+      <input type="text" placeholder="Enter Username" name="username" required formControlName="username"><br><br>
+      <div *ngIf=" f['username'].touched" class="alert alert-danger">
+
+        <div *ngIf="f['username'].invalid">Username is required</div>
+
+      </div>
+
+      <label for="psw"><b>Password</b></label> &nbsp;
+      <input type="password" placeholder="Enter Password" name="password" required formControlName="password" required
+        min.length="8"><br> <br>
+        <div *ngIf=" f['password'].touched" class="alert alert-danger">
+
+          <div *ngIf="f['password'].invalid">invalid password</div>
+  
+        </div>
+
+      <button type="submit" style="text-align: center;" class="btn btn-dark">Login</button><br><br>
+
+
+      <label> <input type="checkbox" checked="checked" name="remember"> Remember me </label> <br> <br>
+
+    </div>
+  </div><br><br>
+
+</form><br>
+
+
+
+
+
+<!--<tr *ngFor="let homedata of users ">
+
+ <td>{{homedata.id}}</td>
+ <td>{{homedata.username}}</td>
+ 
+
+ Change it,,,,-->
+<div class="jumbotron jumbotron-center" style="text-align: center;">
+
+  <div class="container">
+
+    <!--<div *ngIf="number % 2 == 0; else showOdd">
+
+  Even number {{ number | currency}}
+
+</div>
+
+<ng-template #showOdd>
+
+Odd number {{ number | currency}}
+
+</ng-template>
+
+<button type="button" style="text-align: center;" class="btn btn-primary">Display one record</button><br><br>-->
+    <button type="button"  class="btn btn-success" (click)="getallUser()">User
+      Details</button>
+  </div><br>
+
+  <table class="table" style="text-align: center;">
+
+    <tr *ngFor="let user of users ">
+
+      <td>{{user.id}}</td>&nbsp;
+      <td>{{user.username}}</td>&nbsp;
+      <td>{{user.password}}</td>&nbsp;
+      <button type="button" class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button><br>
+
+    </tr>
+  </table>
+</div>
+<app-footer></app-footer>
